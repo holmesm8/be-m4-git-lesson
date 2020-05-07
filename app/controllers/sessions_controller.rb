@@ -2,17 +2,17 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def create
-    user = User.find_by(email: params[:session][:email])
-    if authenticated?(user, params)
-      set_session(user)
-      flash_login(user)
-      redirect(user)
-    else
-      flash[:error] = "Unable to log in, please try again."
-      render :new
-    end
-  end
+  # def create
+  #   user = User.find_by(email: params[:session][:email])
+  #   if authenticated?(user, params)
+  #     set_session(user)
+  #     flash_login(user)
+  #     redirect(user)
+  #   else
+  #     flash[:error] = "Unable to log in, please try again."
+  #     render :new
+  #   end
+  # end
 
   def destroy
     session.clear
